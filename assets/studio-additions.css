@@ -4,6 +4,86 @@
    Paleta: White #FFFFFF | Persian Blue #1332DE | Black #000000
    ===================================================================== */
 
+/* ============ (-1) MOTION SYSTEM ============ */
+
+/* Kicker "AI STUDIO" — más grande y más ancho */
+.hero-kicker {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.62em !important;
+}
+
+/* Letras (hero title + kicker): entrada rise + blur */
+.m-letter {
+  display: inline-block;
+  white-space: pre;
+  opacity: 0;
+  transform: translateY(0.55em) rotate(2deg);
+  filter: blur(10px);
+  animation: mLetterIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes mLetterIn {
+  to { opacity: 1; transform: translateY(0) rotate(0); filter: blur(0); }
+}
+
+/* Kicker: además del rise, tracking que se asienta */
+.hero-entrance .hero-kicker { animation: mTrackIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@keyframes mTrackIn {
+  from { letter-spacing: 1.1em; opacity: 0.4; }
+  to   { letter-spacing: 0.62em; opacity: 1; }
+}
+
+/* Subhead del hero: palabras que suben en cascada al cargar
+   (el delay por palabra lo inyecta motion.js inline con base 900ms) */
+.m-hero-words .m-word {
+  opacity: 0;
+  transform: translateY(0.9em);
+  animation: mWordIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* CTA y scroll indicator entran al final */
+.hero-entrance .hero-cta-wrapper { animation: mFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 1.35s both; }
+.hero-entrance .scroll-indicator { animation: mFadeUp 0.9s ease 1.9s both; }
+
+@keyframes mFadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Palabras genéricas (títulos/descripciones): estado inicial + entrada */
+.m-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.m-title .m-word,
+.m-desc .m-word {
+  opacity: 0;
+  transform: translateY(0.7em);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.m-title.m-in .m-word,
+.m-desc.m-in .m-word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes mWordIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Los data-reveal-word existentes conservan su fade; el stagger interno lo aportan los .m-word */
+.motion-off .m-letter, .motion-off .m-word { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; transition: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .m-letter, .m-word, .hero-entrance .hero-cta-wrapper, .hero-entrance .scroll-indicator, .hero-entrance .hero-kicker {
+    opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; transition: none !important;
+  }
+}
+
 /* ============ (0) MOBILE FIXES (audit 2026-07-06) ============ */
 
 html, body {
