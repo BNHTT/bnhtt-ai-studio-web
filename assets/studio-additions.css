@@ -4,6 +4,47 @@
    Paleta: White #FFFFFF | Persian Blue #1332DE | Black #000000
    ===================================================================== */
 
+/* ============ (0) MOBILE FIXES (audit 2026-07-06) ============ */
+
+html, body {
+  overflow-x: clip;
+}
+
+@media (max-width: 720px) {
+  .header {
+    flex-wrap: wrap;
+    row-gap: 0.2rem;
+  }
+  .header-location,
+  .header-time {
+    display: none;
+  }
+  .header-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.4rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .header-nav::-webkit-scrollbar { display: none; }
+  .nav-link {
+    padding: 0.7rem 0.35rem; /* tap target ≥40px */
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .footer-form {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  .footer-btn {
+    padding: 0.8rem 1.4rem;
+  }
+}
+
 /* ============ (1) DIAGONAL CASCADE — inspired by the-kind-agency.com ============ */
 
 .kind-cascade {
