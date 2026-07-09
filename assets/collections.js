@@ -12,6 +12,11 @@
     details.forEach(function (d) { d.classList.remove('active'); });
     target.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+    // Move focus to the back button (first focusable element in the panel,
+    // ahead of the heading in DOM order) so keyboard/screen-reader users
+    // land on the new content and can still Tab forward through it normally.
+    var back = target.querySelector('[data-back]');
+    if (back) back.focus({ preventScroll: true });
   }
 
   function showGrid() {
@@ -35,8 +40,14 @@
 
   document.querySelectorAll('[data-back]').forEach(function (btn) {
     btn.addEventListener('click', function () {
+      var detail = btn.closest('.collection-detail');
+      var slug = detail ? detail.id.replace('detail-', '') : null;
       history.pushState('', document.title, location.pathname + location.search);
       showGrid();
+      // Return focus to the card the user came from, instead of dropping
+      // it back at the top of the document.
+      var card = slug && grid.querySelector('[data-collection="' + slug + '"]');
+      if (card) card.focus();
     });
   });
 
