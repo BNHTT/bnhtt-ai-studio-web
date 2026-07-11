@@ -1,0 +1,83 @@
+/* =====================================================================
+   LIVING BLUE — sistema de azul en movimiento (2026-07-11)
+   Le da vida al Persian Blue (#1332DE) en TODO elemento que lo use:
+   - Texto azul  → gradiente animado (shimmer)
+   - Fondos azules → gradiente líquido en movimiento
+   - Líneas/bordes azules → gradiente que fluye + glow
+   Se carga DESPUÉS de custom-overrides.css y studio-additions.css
+   para sobreescribir. Respeta prefers-reduced-motion.
+   Paleta: Persian Blue #1332DE → Electric #1a4aff → Bright #3b63ff
+   ===================================================================== */
+
+:root {
+  --blue-1: #1332DE;
+  --blue-2: #1a4aff;
+  --blue-3: #3b63ff;
+  /* gradiente simétrico para que el loop de background-position sea contínuo */
+  --blue-flow: linear-gradient(115deg,
+    var(--blue-1) 0%, var(--blue-2) 25%, var(--blue-3) 50%,
+    var(--blue-2) 75%, var(--blue-1) 100%);
+}
+
+@keyframes blueFlow {
+  from { background-position: 0% 50%; }
+  to   { background-position: 200% 50%; }
+}
+@keyframes blueGlowPulse {
+  0%, 100% { box-shadow: 0 12px 30px rgba(19, 50, 222, 0.32); }
+  50%      { box-shadow: 0 16px 42px rgba(40, 90, 255, 0.55); }
+}
+
+/* ---------- (A) FONDOS azules: gradiente líquido en movimiento ---------- */
+.hero-cta,
+.hero-cta::before,
+.contact-btn,
+.cascade-cta:hover,
+.detail-back:hover {
+  background-image: var(--blue-flow) !important;
+  background-size: 200% 200% !important;
+  animation: blueFlow 7s linear infinite;
+}
+/* el CTA primario suma un pulso de glow para reforzar la jerarquía */
+.contact-btn {
+  animation: blueFlow 7s linear infinite, blueGlowPulse 4.5s ease-in-out infinite;
+}
+.cascade-cta:hover,
+.detail-back:hover { animation-duration: 6s; }
+
+/* ---------- (B) TEXTO azul: gradiente animado (shimmer) ---------- */
+.hero-kicker,
+.cascade-kicker,
+.detail-kicker,
+.contact-kicker,
+.nav-cart,
+.footer-btn,
+.nav-link:hover {
+  background: var(--blue-flow);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+  animation: blueFlow 6s linear infinite;
+}
+
+/* ---------- (C) LÍNEAS / BORDES azules: gradiente que fluye + glow ---------- */
+.nav-link::after {
+  background: var(--blue-flow) !important;
+  background-size: 200% auto;
+  animation: blueFlow 5s linear infinite;
+}
+.footer-form:focus-within {
+  border-color: var(--blue-2) !important;
+  box-shadow: 0 2px 14px -5px rgba(40, 90, 255, 0.65);
+}
+
+/* ---------- Accesibilidad: sin movimiento si el usuario lo pide ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta, .hero-cta::before, .contact-btn, .cascade-cta:hover, .detail-back:hover,
+  .hero-kicker, .cascade-kicker, .detail-kicker, .contact-kicker,
+  .nav-cart, .footer-btn, .nav-link:hover, .nav-link::after {
+    animation: none !important;
+  }
+}
