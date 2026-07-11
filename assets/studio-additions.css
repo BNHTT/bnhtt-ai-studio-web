@@ -409,6 +409,41 @@ html, body {
   object-fit: contain;
 }
 
+.detail-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.detail-nav-link {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  color: #000;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.detail-nav-link:hover {
+  color: #1332DE;
+}
+
+.detail-nav-next {
+  text-align: right;
+}
+
 @media (max-width: 640px) {
   .collections-main { padding-top: 6rem; }
+
+  .detail-nav {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .detail-nav-next {
+    text-align: left;
+  }
 }
