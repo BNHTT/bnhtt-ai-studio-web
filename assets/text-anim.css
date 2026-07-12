@@ -1,0 +1,19 @@
+/* =====================================================================
+   TEXT ANIM — animación de ENTRADA y SALIDA para el texto de todas las
+   secciones (2026-07-12). Complementa motion.js (títulos/descripciones):
+   este archivo cubre el resto del texto (kickers, subtítulos, labels,
+   bloque de contacto, footer...). Toggle bidireccional vía IntersectionObserver.
+   ===================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  .ta {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .ta.ta-in {
+    opacity: 1;
+    transform: none;
+  }
+}
