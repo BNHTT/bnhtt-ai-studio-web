@@ -1,0 +1,84 @@
+/* =====================================================================
+   UI POLISH — auditoría UI 2026-07-12 (index)
+   UI-1 header inmersivo sobre el hero → sólido al scroll
+   UI-2 descriptores en las tarjetas de servicio
+   UI-3 tokens de border-radius coherentes
+   UI-5 estado activo de la nav (scroll-spy)
+   Cargado después de los demás CSS para sobreescribir.
+   ===================================================================== */
+
+:root {
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+}
+
+/* ---------- (UI-1) HEADER inmersivo ---------- */
+/* Por defecto: oscuro y cohesivo con el ticker y el hero (adiós banda blanca). */
+.header {
+  background: #000000 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  transition: background .35s ease, border-color .35s ease, backdrop-filter .35s ease;
+}
+.header .header-brand { color: #FFFFFF; transition: color .35s ease; }
+.header .header-location,
+.header .header-time { color: rgba(255, 255, 255, 0.55); transition: color .35s ease; }
+.header .nav-link { color: #FFFFFF; transition: color .2s ease; }
+
+/* Al scrollear hacia el contenido claro: header sólido + texto oscuro. */
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+.header.scrolled .header-brand { color: #000000; }
+.header.scrolled .header-location,
+.header.scrolled .header-time { color: rgba(0, 0, 0, 0.55); }
+.header.scrolled .nav-link { color: #000000; }
+/* la nav CONTACT (living-blue) mantiene su gradiente en ambos estados */
+
+/* ---------- (UI-3) tokens de radius coherentes ---------- */
+.spotlight-card,
+.spotlight-img { border-radius: var(--radius-sm); overflow: hidden; }
+.hero-cta,
+.contact-btn,
+.cascade-cta,
+.detail-back { border-radius: var(--radius-pill); }
+
+/* ---------- (UI-2) descriptores de las tarjetas de servicio ---------- */
+.spotlight-card { position: relative; }
+/* overlay uniforme para legibilidad del texto en ambas tarjetas */
+.spotlight-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 55%);
+  pointer-events: none;
+}
+.spotlight-desc {
+  display: block;
+  max-width: 32ch;
+  margin-top: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.82);
+  position: absolute;
+  left: 1.6rem;
+  bottom: 1.4rem;
+  z-index: 2;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+}
+/* subir el label para dejar sitio al descriptor */
+.spotlight-card .spotlight-label { z-index: 2; }
+.spotlight-card:has(.spotlight-desc) .spotlight-label { bottom: 4.6rem; }
+
+/* ---------- (UI-5) estado activo de la nav (scroll-spy) ---------- */
+/* reusa el subrayado living-blue: la sección visible queda marcada */
+.nav-link.active::after { width: 100%; }
+.nav-link.active { opacity: 1; }
+
+@media (max-width: 720px) {
+  .spotlight-desc { font-size: 0.8rem; left: 1rem; bottom: 1rem; }
+  .spotlight-card:has(.spotlight-desc) .spotlight-label { bottom: 3.8rem; }
+}
