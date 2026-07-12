@@ -68,22 +68,20 @@
   titles.forEach(function (el) { splitWords(el, 70); el.classList.add("m-title"); });
   descs.forEach(function (el)  { splitWords(el, 22); el.classList.add("m-desc"); });
 
+  /* toggle bidireccional: entra al aparecer, sale al salir del viewport */
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("m-in");
-        io.unobserve(entry.target);
-      }
+      if (entry.isIntersecting) entry.target.classList.add("m-in");
+      else entry.target.classList.remove("m-in");
     });
-  }, { threshold: 0.25, rootMargin: "0px 0px -4% 0px" });
+  }, { threshold: 0.2, rootMargin: "0px 0px -6% 0px" });
 
   titles.concat(descs).forEach(function (el) {
+    io.observe(el);
     var r = el.getBoundingClientRect();
     if (r.top < window.innerHeight && r.bottom > 0) {
       /* already in view on load (e.g. collections heading) → animate right away */
       requestAnimationFrame(function () { setTimeout(function () { el.classList.add("m-in"); }, 120); });
-    } else {
-      io.observe(el);
     }
   });
 

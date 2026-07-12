@@ -1,0 +1,42 @@
+/* =====================================================================
+   DARK THEME — unifica toda la web a la paleta oscura (2026-07-12)
+   Antes: hero/cascade/footer oscuros pero services/work/process en blanco.
+   Ahora: todo negro editorial. Cargado al final para sobreescribir.
+   ===================================================================== */
+
+body {
+  background: #000000 !important;
+  color: #EDEDED;
+}
+
+/* secciones que estaban en blanco → negro */
+.browse,
+.photo-banner,
+.slideshow {
+  background: #000000 !important;
+}
+
+/* títulos de sección: de negro a blanco */
+.section-title {
+  color: #FFFFFF !important;
+}
+
+/* En un sitio 100% oscuro el header NO debe volverse blanco al scrollear:
+   se mantiene oscuro con un fondo translúcido + blur para separar del contenido. */
+.header.scrolled {
+  background: rgba(0, 0, 0, 0.72) !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+.header.scrolled .header-brand { color: #FFFFFF; }
+.header.scrolled .header-location,
+.header.scrolled .header-time { color: rgba(255, 255, 255, 0.55); }
+.header.scrolled .nav-link { color: #FFFFFF; }
+
+/* collections.html — fondo oscuro y textos claros */
+.collections-main { background: #000000 !important; }
+.collections-heading,
+.collections-sub,
+.detail-title,
+.detail-desc { color: #FFFFFF !important; }
