@@ -123,11 +123,11 @@
   ];
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var U = {
-    colorCount: 4, scale: 1.16, intensity: 0.55, paramA: 0.5, warp: 0.0,
+    colorCount: 4, scale: 1.16, intensity: 0.55, paramA: 0.5, warp: 0.30,
     detail: 2.4, contrast: 1.15, brightness: 0.0, saturation: 1.05,
     vignette: 0.28, blur: 0.0, grain: 0.05, seed: 1453.0, rotate: 0.0,
-    offsetX: 0.0, offsetY: 0.0, drift: 0.28, oklab: 0.0,
-    timeScale: reduce ? 0.0 : 0.62
+    offsetX: 0.0, offsetY: 0.0, drift: 0.55, oklab: 0.0,
+    timeScale: reduce ? 0.0 : 1.10
   };
 
   function compile(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; }
