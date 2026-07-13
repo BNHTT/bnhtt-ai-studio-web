@@ -111,21 +111,23 @@
     ' gl_FragColor=vec4(clamp(col,0.0,1.0),1.0);}'
   ].join('\n');
 
-  /* Paleta AZUL de marca (Persian Blue #1332DE y familia). 4 colores. */
+  /* Paleta FRÍA y VARIADA (on-brand): navy → Persian Blue → teal/cyan →
+     violeta. Al ser distintos, el "mesh" en movimiento hace que se vean
+     regiones de color desplazándose aunque no scrollees. */
   var COLORS = [
-    [0.020, 0.024, 0.078],   // navy casi negro
+    [0.016, 0.024, 0.090],   // navy profundo
     [0.075, 0.196, 0.871],   // Persian Blue #1332DE
-    [0.102, 0.290, 1.000],   // electric #1a4aff
-    [0.420, 0.520, 1.000],   // azul claro / lavanda
-    [0.420, 0.520, 1.000], [0.420, 0.520, 1.000], [0.420, 0.520, 1.000], [0.420, 0.520, 1.000]
+    [0.000, 0.560, 0.760],   // teal / cyan
+    [0.470, 0.180, 0.920],   // violeta
+    [0.470, 0.180, 0.920], [0.470, 0.180, 0.920], [0.470, 0.180, 0.920], [0.470, 0.180, 0.920]
   ];
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var U = {
-    colorCount: 4, scale: 1.16, intensity: 0.40, paramA: 0.5, warp: 0.0,
-    detail: 2.4, contrast: 1.15, brightness: 0.0, saturation: 1.0,
-    vignette: 0.35, blur: 0.0, grain: 0.05, seed: 1453.0, rotate: 0.0,
-    offsetX: 0.0, offsetY: 0.0, drift: 0.18, oklab: 0.0,
-    timeScale: reduce ? 0.0 : 0.45
+    colorCount: 4, scale: 1.16, intensity: 0.55, paramA: 0.5, warp: 0.0,
+    detail: 2.4, contrast: 1.15, brightness: 0.0, saturation: 1.05,
+    vignette: 0.28, blur: 0.0, grain: 0.05, seed: 1453.0, rotate: 0.0,
+    offsetX: 0.0, offsetY: 0.0, drift: 0.28, oklab: 0.0,
+    timeScale: reduce ? 0.0 : 0.62
   };
 
   function compile(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; }
@@ -185,9 +187,14 @@
   var start = performance.now();
   function render(now) {
     resize();
-    var time = ((now - start) / 1000) * U.timeScale;
+    var elapsed = (now - start) / 1000;
+    var time = elapsed * U.timeScale;
+    /* El COLOR cambia SOLO y continuamente (vaivén lento por el tiempo),
+       y el scroll lo empuja un poco más. Todo dentro de la familia de marca. */
+    var timeHue = reduce ? 0 : Math.sin(elapsed * 0.32) * 0.85;
+    var hue = timeHue + scrollHue * 0.45;
     gl.uniform4f(uni.scene, canvas.width, canvas.height, time, U.colorCount);
-    gl.uniform4f(uni.finish, scrollHue, U.vignette, U.blur, U.grain);
+    gl.uniform4f(uni.finish, hue, U.vignette, U.blur, U.grain);
     gl.uniform4f(uni.space, U.offsetX, U.offsetY, 0, 0);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
     requestAnimationFrame(render);
