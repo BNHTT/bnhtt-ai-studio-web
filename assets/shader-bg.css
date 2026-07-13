@@ -1,0 +1,42 @@
+/* =====================================================================
+   SHADER BACKGROUND — canvas fijo detrás de todo el contenido (2026-07-13)
+   Deja ver el fondo animado que cambia de color al scrollear.
+   ===================================================================== */
+
+#shaderBg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: block;
+  pointer-events: none;
+}
+
+/* el fondo base es el shader; html queda negro como fallback */
+html { background: #000000; }
+body { background: transparent !important; }
+
+/* secciones que eran negras sólidas → transparentes o con velo para
+   que el shader se vea a través, manteniendo legibilidad del texto */
+.browse,
+.photo-banner,
+.slideshow,
+.collections-main { background: transparent !important; }
+
+.kind-cascade { background: rgba(0, 0, 0, 0.30) !important; }
+.footer { background: rgba(0, 0, 0, 0.38) !important; }
+
+/* fondo oscuro de respaldo en las tarjetas de servicio: evita que el
+   shader se vea "a través" mientras la imagen decodifica (async) */
+.spotlight-img { background: #0a0a12; }
+
+/* refuerzo de legibilidad del texto sobre el fondo de color */
+.section-title,
+.collections-heading,
+.collections-sub,
+.contact-title,
+.contact-sub,
+.detail-title,
+.detail-desc,
+.cascade-title { text-shadow: 0 2px 26px rgba(0, 0, 0, 0.6); }
