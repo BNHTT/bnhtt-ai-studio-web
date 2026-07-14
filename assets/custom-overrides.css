@@ -149,6 +149,30 @@ a {
   height: 100%;
   object-fit: cover;
 }
+
+/* =====================================================================
+   SOCIAL PLACEHOLDER — tapa la marca de agua del generador IA en la
+   esquina inferior derecha del hero video y reserva espacio para
+   iconos de redes sociales (IG / Pinterest / TikTok / etc.) a futuro.
+   Bloque oscuro on-brand, esquinas rectas, sin contenido inventado.
+   ===================================================================== */
+.social-placeholder {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  width: clamp(72px, 12vw, 130px);
+  height: clamp(56px, 9vw, 96px);
+  background: #000000;
+  pointer-events: none;
+}
+@media (max-width: 720px) {
+  .social-placeholder {
+    width: clamp(90px, 26vw, 150px);
+    height: clamp(72px, 16vh, 120px);
+  }
+}
+
 /* Overlay que se desvanece al scrollear */
 .hero-overlay {
   position: absolute;

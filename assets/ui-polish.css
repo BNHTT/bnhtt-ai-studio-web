@@ -9,7 +9,7 @@
 
 :root {
   --radius-sm: 8px;
-  --radius-pill: 999px;
+  --radius-pill: 0; /* botones rectangulares — sin esquinas redondeadas (2026-07-14) */
 }
 
 /* ---------- (UI-1) HEADER inmersivo ---------- */

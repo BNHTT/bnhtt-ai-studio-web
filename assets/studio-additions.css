@@ -496,7 +496,7 @@ html, body {
   letter-spacing: 0.01em;
   text-decoration: none;
   padding: 1.05rem 2.1rem;      /* tap target ≥ 44px */
-  border-radius: 999px;
+  border-radius: 0; /* botones rectangulares (2026-07-14) */
   transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s, box-shadow 0.2s;
   box-shadow: 0 12px 30px rgba(19, 50, 222, 0.35);
 }
@@ -582,7 +582,7 @@ html, body {
   letter-spacing: 0.01em;
   text-decoration: none;
   padding: 1.05rem 2.1rem;      /* tap target ≥ 44px */
-  border-radius: 999px;
+  border-radius: 0; /* botones rectangulares (2026-07-14) */
   transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s, box-shadow 0.2s;
   box-shadow: 0 12px 30px rgba(19, 50, 222, 0.35);
 }
