@@ -223,33 +223,6 @@
   })();
 
   /* ===================================================================
-     COMPONENTE 4: SPOTLIGHT CARD (EaseMize)
-     Brillo que sigue al mouse en las cards
-     =================================================================== */
-  (function initSpotlightCards() {
-    var cards = document.querySelectorAll("[data-spotlight]");
-    if (!cards.length) return;
-
-    cards.forEach(function (card) {
-      var glow = card.querySelector(".spotlight-glow");
-      if (!glow) return;
-
-      card.addEventListener("mousemove", function (e) {
-        var rect = card.getBoundingClientRect();
-        var x = ((e.clientX - rect.left) / rect.width) * 100;
-        var y = ((e.clientY - rect.top) / rect.height) * 100;
-        glow.style.setProperty("--mx", x + "%");
-        glow.style.setProperty("--my", y + "%");
-      });
-
-      card.addEventListener("mouseleave", function () {
-        glow.style.setProperty("--mx", "50%");
-        glow.style.setProperty("--my", "50%");
-      });
-    });
-  })();
-
-  /* ===================================================================
      COMPONENTE 5: TEXT REVEAL (Magic UI)
      Palabras/elementos que aparecen al scrollear
      =================================================================== */
