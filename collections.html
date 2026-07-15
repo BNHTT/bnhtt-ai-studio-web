@@ -120,15 +120,111 @@
       <button class="detail-back" data-back>← ALL COLLECTIONS</button>
       <h2 class="detail-title">BLUE / AETHER FLUX</h2>
       <p class="detail-desc">AI-generated editorial photoshoot on a saturated blue set: standing and full-body frames, 3/4 editorial angles and close-up portraits, plus the Aether Flux fashion film — all built from a single reference model, with zero physical photoshoot.</p>
-      <div class="detail-gallery">
-        <video class="gallery-video" src="assets/campaigns/blue/AETHER_FLUX_v2_final.mp4" controls preload="metadata" poster="assets/campaigns/blue/ph_standing_900.webp"></video>
-        <img src="assets/campaigns/blue/ph_standing_900.webp" srcset="assets/campaigns/blue/ph_standing_480.webp 480w, assets/campaigns/blue/ph_standing_900.webp 900w" sizes="(max-width: 700px) 90vw, 480px" alt="Blue — standing full body" loading="lazy">
-        <img src="assets/campaigns/blue/ph_fullbody_900.webp" srcset="assets/campaigns/blue/ph_fullbody_480.webp 480w, assets/campaigns/blue/ph_fullbody_900.webp 900w" sizes="(max-width: 700px) 90vw, 480px" alt="Blue — full body frontal" loading="lazy">
-        <img src="assets/campaigns/blue/ph_34_900.webp" srcset="assets/campaigns/blue/ph_34_480.webp 480w, assets/campaigns/blue/ph_34_900.webp 900w" sizes="(max-width: 700px) 90vw, 480px" alt="Blue — 3/4 editorial angle" loading="lazy">
-        <img src="assets/campaigns/blue/ph_closeup_900.webp" srcset="assets/campaigns/blue/ph_closeup_480.webp 480w, assets/campaigns/blue/ph_closeup_900.webp 900w" sizes="(max-width: 700px) 90vw, 480px" alt="Blue — close-up portrait" loading="lazy">
-        <img src="assets/campaigns/blue/ph_portrait_grey_900.webp" srcset="assets/campaigns/blue/ph_portrait_grey_480.webp 480w, assets/campaigns/blue/ph_portrait_grey_900.webp 900w" sizes="(max-width: 700px) 90vw, 480px" alt="Blue — grey portrait variation" loading="lazy">
-        <img src="assets/campaigns/blue/ph_crouch_900.webp" srcset="assets/campaigns/blue/ph_crouch_480.webp 480w, assets/campaigns/blue/ph_crouch_900.webp 900w" sizes="(max-width: 700px) 90vw, 480px" alt="Blue — crouch pose" loading="lazy">
-        <img src="assets/campaigns/blue/ph_editorial_900.webp" srcset="assets/campaigns/blue/ph_editorial_480.webp 480w, assets/campaigns/blue/ph_editorial_900.webp 900w" sizes="(max-width: 700px) 90vw, 480px" alt="Blue — editorial frame" loading="lazy">
+      <div class="accordion-blue" id="accordionBlue" role="group" aria-label="Blue / Aether Flux — interactive look selector">
+        <button class="acc-panel active" type="button" aria-pressed="true" aria-label="AETHER FLUX — Fashion film">
+          <span class="acc-media">
+            <video autoplay muted loop playsinline poster="assets/campaigns/blue/ph_standing_900.webp" src="assets/campaigns/blue/AETHER_FLUX_v2_final.mp4"></video>
+          </span>
+          <span class="acc-shade" aria-hidden="true"></span>
+          <span class="acc-label">
+            <span class="acc-icon">01</span>
+            <span class="acc-text">
+              <span class="acc-title">AETHER FLUX</span>
+              <span class="acc-subtitle">Fashion film</span>
+            </span>
+          </span>
+        </button>
+        <button class="acc-panel" type="button" aria-pressed="false" aria-label="Standing — full body">
+          <span class="acc-media">
+            <img src="assets/campaigns/blue/ph_standing_900.webp" srcset="assets/campaigns/blue/ph_standing_480.webp 480w, assets/campaigns/blue/ph_standing_900.webp 900w" sizes="(max-width: 768px) 100vw, 40vw" alt="Blue — standing full body" loading="lazy">
+          </span>
+          <span class="acc-shade" aria-hidden="true"></span>
+          <span class="acc-label">
+            <span class="acc-icon">02</span>
+            <span class="acc-text">
+              <span class="acc-title">STANDING</span>
+              <span class="acc-subtitle">Full body</span>
+            </span>
+          </span>
+        </button>
+        <button class="acc-panel" type="button" aria-pressed="false" aria-label="Full body — frontal">
+          <span class="acc-media">
+            <img src="assets/campaigns/blue/ph_fullbody_900.webp" srcset="assets/campaigns/blue/ph_fullbody_480.webp 480w, assets/campaigns/blue/ph_fullbody_900.webp 900w" sizes="(max-width: 768px) 100vw, 40vw" alt="Blue — full body frontal" loading="lazy">
+          </span>
+          <span class="acc-shade" aria-hidden="true"></span>
+          <span class="acc-label">
+            <span class="acc-icon">03</span>
+            <span class="acc-text">
+              <span class="acc-title">FULL BODY</span>
+              <span class="acc-subtitle">Frontal</span>
+            </span>
+          </span>
+        </button>
+        <button class="acc-panel" type="button" aria-pressed="false" aria-label="3/4 editorial angle">
+          <span class="acc-media">
+            <img src="assets/campaigns/blue/ph_34_900.webp" srcset="assets/campaigns/blue/ph_34_480.webp 480w, assets/campaigns/blue/ph_34_900.webp 900w" sizes="(max-width: 768px) 100vw, 40vw" alt="Blue — 3/4 editorial angle" loading="lazy">
+          </span>
+          <span class="acc-shade" aria-hidden="true"></span>
+          <span class="acc-label">
+            <span class="acc-icon">04</span>
+            <span class="acc-text">
+              <span class="acc-title">3/4 EDITORIAL</span>
+              <span class="acc-subtitle">Angle</span>
+            </span>
+          </span>
+        </button>
+        <button class="acc-panel" type="button" aria-pressed="false" aria-label="Close-up portrait">
+          <span class="acc-media">
+            <img src="assets/campaigns/blue/ph_closeup_900.webp" srcset="assets/campaigns/blue/ph_closeup_480.webp 480w, assets/campaigns/blue/ph_closeup_900.webp 900w" sizes="(max-width: 768px) 100vw, 40vw" alt="Blue — close-up portrait" loading="lazy">
+          </span>
+          <span class="acc-shade" aria-hidden="true"></span>
+          <span class="acc-label">
+            <span class="acc-icon">05</span>
+            <span class="acc-text">
+              <span class="acc-title">CLOSE-UP</span>
+              <span class="acc-subtitle">Portrait</span>
+            </span>
+          </span>
+        </button>
+        <button class="acc-panel" type="button" aria-pressed="false" aria-label="Grey portrait variation">
+          <span class="acc-media">
+            <img src="assets/campaigns/blue/ph_portrait_grey_900.webp" srcset="assets/campaigns/blue/ph_portrait_grey_480.webp 480w, assets/campaigns/blue/ph_portrait_grey_900.webp 900w" sizes="(max-width: 768px) 100vw, 40vw" alt="Blue — grey portrait variation" loading="lazy">
+          </span>
+          <span class="acc-shade" aria-hidden="true"></span>
+          <span class="acc-label">
+            <span class="acc-icon">06</span>
+            <span class="acc-text">
+              <span class="acc-title">GREY PORTRAIT</span>
+              <span class="acc-subtitle">Variation</span>
+            </span>
+          </span>
+        </button>
+        <button class="acc-panel" type="button" aria-pressed="false" aria-label="Crouch pose">
+          <span class="acc-media">
+            <img src="assets/campaigns/blue/ph_crouch_900.webp" srcset="assets/campaigns/blue/ph_crouch_480.webp 480w, assets/campaigns/blue/ph_crouch_900.webp 900w" sizes="(max-width: 768px) 100vw, 40vw" alt="Blue — crouch pose" loading="lazy">
+          </span>
+          <span class="acc-shade" aria-hidden="true"></span>
+          <span class="acc-label">
+            <span class="acc-icon">07</span>
+            <span class="acc-text">
+              <span class="acc-title">CROUCH</span>
+              <span class="acc-subtitle">Pose</span>
+            </span>
+          </span>
+        </button>
+        <button class="acc-panel" type="button" aria-pressed="false" aria-label="Editorial frame">
+          <span class="acc-media">
+            <img src="assets/campaigns/blue/ph_editorial_900.webp" srcset="assets/campaigns/blue/ph_editorial_480.webp 480w, assets/campaigns/blue/ph_editorial_900.webp 900w" sizes="(max-width: 768px) 100vw, 40vw" alt="Blue — editorial frame" loading="lazy">
+          </span>
+          <span class="acc-shade" aria-hidden="true"></span>
+          <span class="acc-label">
+            <span class="acc-icon">08</span>
+            <span class="acc-text">
+              <span class="acc-title">EDITORIAL</span>
+              <span class="acc-subtitle">Frame</span>
+            </span>
+          </span>
+        </button>
       </div>
       <nav class="detail-nav" aria-label="Other collections">
         <a href="#smoke" class="detail-nav-link detail-nav-prev">← SMOKE</a>
@@ -183,6 +279,7 @@
   <script src="assets/custom-enhance.js"></script>
   <script src="assets/motion.js"></script>
   <script src="assets/collections.js"></script>
+  <script src="assets/blue-accordion.js"></script>
   <script src="assets/ui-polish.js"></script>
   <script src="assets/text-anim.js"></script>
   <script src="assets/shader-bg.js"></script>
