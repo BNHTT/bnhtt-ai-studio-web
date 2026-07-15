@@ -67,7 +67,7 @@
         <img src="assets/campaigns/smoke/image-full-portrait-fashion-photograph-of-the--mr4r8g49-2myx_900.webp" srcset="assets/campaigns/smoke/image-full-portrait-fashion-photograph-of-the--mr4r8g49-2myx_480.webp 480w, assets/campaigns/smoke/image-full-portrait-fashion-photograph-of-the--mr4r8g49-2myx_900.webp 900w" sizes="(max-width: 700px) 90vw, 420px" alt="Smoke collection cover — AI-generated fashion portrait" decoding="async" width="900" height="1200">
         <span class="collection-card-label">
           <span class="collection-card-name">SMOKE</span>
-          <span class="collection-card-count">7 STILLS + 2 FILMS</span>
+          <span class="collection-card-count">7 STILLS + 3 FILMS</span>
         </span>
       </a>
       <a class="collection-card" href="#blue" data-collection="blue">
@@ -98,16 +98,53 @@
       <button class="detail-back" data-back>← ALL COLLECTIONS</button>
       <h2 class="detail-title">SMOKE</h2>
       <p class="detail-desc">Full fashion campaign generated with AI: editorial portraits, product still-life, detail shots and a paced fashion film — produced without a physical photoshoot.</p>
-      <div class="detail-gallery">
-        <video class="gallery-video" src="assets/campaigns/smoke/smoke_film1.mp4" controls preload="metadata" poster="assets/campaigns/smoke/smoke_film1_poster.webp"></video>
-        <video class="gallery-video" src="assets/campaigns/smoke/smoke_film2.mp4" controls preload="metadata" poster="assets/campaigns/smoke/smoke_film2_poster.webp"></video>
-        <img src="assets/campaigns/smoke/image-full-portrait-fashion-photograph-of-the--mr4r8g49-2myx_900.webp" srcset="assets/campaigns/smoke/image-full-portrait-fashion-photograph-of-the--mr4r8g49-2myx_480.webp 480w, assets/campaigns/smoke/image-full-portrait-fashion-photograph-of-the--mr4r8g49-2myx_900.webp 900w" sizes="(max-width: 700px) 90vw, 480px" alt="Smoke — full portrait" loading="lazy">
-        <img src="assets/campaigns/smoke/image-full-body-fashion-photograph-of-the-same-mr4r9ql4-m71h_900.webp" srcset="assets/campaigns/smoke/image-full-body-fashion-photograph-of-the-same-mr4r9ql4-m71h_480.webp 480w, assets/campaigns/smoke/image-full-body-fashion-photograph-of-the-same-mr4r9ql4-m71h_900.webp 900w" sizes="(max-width: 700px) 90vw, 480px" alt="Smoke — full body" loading="lazy">
-        <img src="assets/campaigns/smoke/image-close-up-fashion-detail-photograph-focus-mr4r941b-03mb_900.webp" srcset="assets/campaigns/smoke/image-close-up-fashion-detail-photograph-focus-mr4r941b-03mb_480.webp 480w, assets/campaigns/smoke/image-close-up-fashion-detail-photograph-focus-mr4r941b-03mb_900.webp 900w" sizes="(max-width: 700px) 90vw, 480px" alt="Smoke — fabric detail close-up" loading="lazy">
-        <img src="assets/campaigns/smoke/image-product-still-life-fashion-photography-o-mr4r7rx3-8bcl_900.webp" srcset="assets/campaigns/smoke/image-product-still-life-fashion-photography-o-mr4r7rx3-8bcl_480.webp 480w, assets/campaigns/smoke/image-product-still-life-fashion-photography-o-mr4r7rx3-8bcl_900.webp 900w" sizes="(max-width: 700px) 90vw, 480px" alt="Smoke — product still life" loading="lazy">
-        <img src="assets/campaigns/smoke/image-camera-most-important-instruction-extrem-mr4rii1w-jrmy_900.webp" srcset="assets/campaigns/smoke/image-camera-most-important-instruction-extrem-mr4rii1w-jrmy_480.webp 480w, assets/campaigns/smoke/image-camera-most-important-instruction-extrem-mr4rii1w-jrmy_900.webp 900w" sizes="(max-width: 700px) 90vw, 480px" alt="Smoke — extreme angle editorial" loading="lazy">
-        <img src="assets/campaigns/smoke/image-camera-most-important-instruction-tight--mr4s2w0s-jcgx_900.webp" srcset="assets/campaigns/smoke/image-camera-most-important-instruction-tight--mr4s2w0s-jcgx_480.webp 480w, assets/campaigns/smoke/image-camera-most-important-instruction-tight--mr4s2w0s-jcgx_900.webp 900w" sizes="(max-width: 700px) 90vw, 480px" alt="Smoke — tight frame editorial" loading="lazy">
-        <img src="assets/campaigns/smoke/image-camera-wide-angle-lens-45-degree-angle-i-mr4s3p71-jqk0_900.webp" srcset="assets/campaigns/smoke/image-camera-wide-angle-lens-45-degree-angle-i-mr4s3p71-jqk0_480.webp 480w, assets/campaigns/smoke/image-camera-wide-angle-lens-45-degree-angle-i-mr4s3p71-jqk0_900.webp 900w" sizes="(max-width: 700px) 90vw, 480px" alt="Smoke — wide angle 45 degrees" loading="lazy">
+      <div class="smoke-masonry" id="smokeMasonry">
+        <figure class="smoke-item" data-ratio="portrait">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/campaigns/smoke/smoke_film1_poster.webp" aria-label="Smoke — fashion film 1">
+            <source src="assets/campaigns/smoke/smoke_film1.mp4" type="video/mp4">
+          </video>
+          <span class="smoke-fallback" aria-hidden="true">SMOKE — FILM 1</span>
+        </figure>
+        <figure class="smoke-item">
+          <img src="assets/campaigns/smoke/image-full-portrait-fashion-photograph-of-the--mr4r8g49-2myx_900.webp" srcset="assets/campaigns/smoke/image-full-portrait-fashion-photograph-of-the--mr4r8g49-2myx_480.webp 480w, assets/campaigns/smoke/image-full-portrait-fashion-photograph-of-the--mr4r8g49-2myx_900.webp 900w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 30vw" alt="Smoke — full portrait" loading="lazy" decoding="async">
+          <span class="smoke-fallback" aria-hidden="true">SMOKE — PORTRAIT</span>
+        </figure>
+        <figure class="smoke-item">
+          <img src="assets/campaigns/smoke/image-full-body-fashion-photograph-of-the-same-mr4r9ql4-m71h_900.webp" srcset="assets/campaigns/smoke/image-full-body-fashion-photograph-of-the-same-mr4r9ql4-m71h_480.webp 480w, assets/campaigns/smoke/image-full-body-fashion-photograph-of-the-same-mr4r9ql4-m71h_900.webp 900w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 30vw" alt="Smoke — full body" loading="lazy" decoding="async">
+          <span class="smoke-fallback" aria-hidden="true">SMOKE — FULL BODY</span>
+        </figure>
+        <figure class="smoke-item" data-ratio="portrait">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/campaigns/smoke/smoke_film2_poster.webp" aria-label="Smoke — fashion film 2">
+            <source src="assets/campaigns/smoke/smoke_film2.mp4" type="video/mp4">
+          </video>
+          <span class="smoke-fallback" aria-hidden="true">SMOKE — FILM 2</span>
+        </figure>
+        <figure class="smoke-item">
+          <img src="assets/campaigns/smoke/image-close-up-fashion-detail-photograph-focus-mr4r941b-03mb_900.webp" srcset="assets/campaigns/smoke/image-close-up-fashion-detail-photograph-focus-mr4r941b-03mb_480.webp 480w, assets/campaigns/smoke/image-close-up-fashion-detail-photograph-focus-mr4r941b-03mb_900.webp 900w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 30vw" alt="Smoke — fabric detail close-up" loading="lazy" decoding="async">
+          <span class="smoke-fallback" aria-hidden="true">SMOKE — DETAIL</span>
+        </figure>
+        <figure class="smoke-item">
+          <img src="assets/campaigns/smoke/image-product-still-life-fashion-photography-o-mr4r7rx3-8bcl_900.webp" srcset="assets/campaigns/smoke/image-product-still-life-fashion-photography-o-mr4r7rx3-8bcl_480.webp 480w, assets/campaigns/smoke/image-product-still-life-fashion-photography-o-mr4r7rx3-8bcl_900.webp 900w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 30vw" alt="Smoke — product still life" loading="lazy" decoding="async">
+          <span class="smoke-fallback" aria-hidden="true">SMOKE — STILL LIFE</span>
+        </figure>
+        <figure class="smoke-item">
+          <img src="assets/campaigns/smoke/image-camera-most-important-instruction-extrem-mr4rii1w-jrmy_900.webp" srcset="assets/campaigns/smoke/image-camera-most-important-instruction-extrem-mr4rii1w-jrmy_480.webp 480w, assets/campaigns/smoke/image-camera-most-important-instruction-extrem-mr4rii1w-jrmy_900.webp 900w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 30vw" alt="Smoke — extreme angle editorial" loading="lazy" decoding="async">
+          <span class="smoke-fallback" aria-hidden="true">SMOKE — EXTREME ANGLE</span>
+        </figure>
+        <figure class="smoke-item">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/campaigns/smoke/FASHION_FILM_smoke_v2_paced_poster.webp" aria-label="Smoke — paced fashion film">
+            <source src="assets/campaigns/smoke/FASHION_FILM_smoke_v2_paced.mp4" type="video/mp4">
+          </video>
+          <span class="smoke-fallback" aria-hidden="true">SMOKE — PACED FILM</span>
+        </figure>
+        <figure class="smoke-item">
+          <img src="assets/campaigns/smoke/image-camera-most-important-instruction-tight--mr4s2w0s-jcgx_900.webp" srcset="assets/campaigns/smoke/image-camera-most-important-instruction-tight--mr4s2w0s-jcgx_480.webp 480w, assets/campaigns/smoke/image-camera-most-important-instruction-tight--mr4s2w0s-jcgx_900.webp 900w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 30vw" alt="Smoke — tight frame editorial" loading="lazy" decoding="async">
+          <span class="smoke-fallback" aria-hidden="true">SMOKE — TIGHT FRAME</span>
+        </figure>
+        <figure class="smoke-item">
+          <img src="assets/campaigns/smoke/image-camera-wide-angle-lens-45-degree-angle-i-mr4s3p71-jqk0_900.webp" srcset="assets/campaigns/smoke/image-camera-wide-angle-lens-45-degree-angle-i-mr4s3p71-jqk0_480.webp 480w, assets/campaigns/smoke/image-camera-wide-angle-lens-45-degree-angle-i-mr4s3p71-jqk0_900.webp 900w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 30vw" alt="Smoke — wide angle 45 degrees" loading="lazy" decoding="async">
+          <span class="smoke-fallback" aria-hidden="true">SMOKE — WIDE ANGLE</span>
+        </figure>
       </div>
       <nav class="detail-nav" aria-label="Other collections">
         <a href="#acid-mirage" class="detail-nav-link detail-nav-prev">← ACID MIRAGE</a>
@@ -280,6 +317,7 @@
   <script src="assets/motion.js"></script>
   <script src="assets/collections.js"></script>
   <script src="assets/blue-accordion.js"></script>
+  <script src="assets/smoke-masonry.js"></script>
   <script src="assets/ui-polish.js"></script>
   <script src="assets/text-anim.js"></script>
   <script src="assets/shader-bg.js"></script>

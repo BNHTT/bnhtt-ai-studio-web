@@ -651,6 +651,109 @@ html, body {
   }
 }
 
+/* ============ (4) SMOKE — MASONRY GALLERY (scroll-reveal) (2026-07-15) ============ */
+/* Port of a React/framer-motion Pinterest-style masonry: vanilla CSS multi-column
+   layout (no JS positioning needed) + IntersectionObserver fade-in.
+   Safety-first (same pattern as .acc-panel above): items default to opacity:1.
+   Only smoke-masonry.js enables the opacity:0 -> fade-in state, and only after it
+   confirms IntersectionObserver support and prefers-reduced-motion is off — so
+   content is NEVER hidden behind an animation that might not run. */
+
+.smoke-masonry {
+  column-count: 1;
+  column-gap: 24px;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .smoke-masonry { column-count: 2; }
+}
+
+@media (min-width: 1024px) {
+  .smoke-masonry { column-count: 3; }
+}
+
+.smoke-item {
+  position: relative;
+  display: block;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  margin: 0 0 24px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0;
+  overflow: hidden;
+  background: #0a0a0a;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: border-color 300ms ease, box-shadow 300ms ease;
+  /* Safety default: fully visible even if the reveal animation never runs. */
+  opacity: 1;
+}
+
+.smoke-item:hover {
+  border-color: #1332DE;
+  box-shadow: 0 10px 26px rgba(19, 50, 222, 0.18);
+}
+
+.smoke-masonry.smoke-reveal-ready .smoke-item {
+  opacity: 0;
+  transition: opacity 1000ms ease-in-out, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.smoke-masonry.smoke-reveal-ready .smoke-item.in-view {
+  opacity: 1;
+}
+
+.smoke-item img,
+.smoke-item video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #0a0a0a;
+}
+
+.smoke-item[data-ratio="portrait"] img,
+.smoke-item[data-ratio="portrait"] video {
+  aspect-ratio: 9 / 16;
+}
+
+.smoke-fallback {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 1rem;
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.5);
+  background: #0a0a0a;
+}
+
+.smoke-item[data-ratio="portrait"] .smoke-fallback {
+  aspect-ratio: 9 / 16;
+}
+
+.smoke-item--error img,
+.smoke-item--error video {
+  display: none;
+}
+
+.smoke-item--error .smoke-fallback {
+  display: flex;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smoke-item {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}
+
 /* ============ (X) CONTACT CTA — effective client-capture block (2026-07-11) ============ */
 /* Reemplaza el "learn to do it yourself" (que vendía en contra del servicio) por un
    CTA primario único, orientado al beneficio. Investigación: CTA específico +161%,
