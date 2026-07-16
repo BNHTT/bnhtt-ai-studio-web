@@ -538,6 +538,8 @@ a {
   gap: 1rem;
 }
 .photo-item {
+  position: relative;
+  display: block;
   aspect-ratio: 3 / 4;
   overflow: hidden;
   cursor: pointer;
@@ -551,6 +553,47 @@ a {
 }
 .photo-item:hover img {
   transform: scale(1.08);
+}
+.photo-item-label {
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0.9rem;
+  z-index: 2;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #FFFFFF;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.photo-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 45%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.photo-item:hover .photo-item-label,
+.photo-item:focus-visible .photo-item-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+.photo-item:hover::after,
+.photo-item:focus-visible::after {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-item-label,
+  .photo-item::after {
+    transition: none;
+  }
 }
 
 /* ---- SLIDESHOW ---- */
